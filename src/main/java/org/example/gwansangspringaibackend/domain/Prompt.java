@@ -1,4 +1,4 @@
-package org.example.gwansangspringaibackend.domain.prompt;
+package org.example.gwansangspringaibackend.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,19 +16,28 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Prompt extends BaseTimeEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
-    private PromptType type;
+    @Column(nullable = false)
+    private Long agentId;
+
+    @Column(nullable = false)
+    private String type;
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String template;
 
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
+    private boolean isActive = true;
+
     @Builder
-    public Prompt(String type, String template) {
+    public Prompt(Long agentId, String type, String template, String description) {
+        this.agentId = agentId;
         this.type = type;
         this.template = template;
+        this.description = description;
     }
 }

@@ -1,4 +1,4 @@
-package org.example.gwansangspringaibackend.domain.prompt;
+package org.example.gwansangspringaibackend.domain;
 
 import java.time.LocalDateTime;
 
