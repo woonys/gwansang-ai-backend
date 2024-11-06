@@ -2,6 +2,8 @@ package org.example.gwansangspringaibackend.domain;
 
 import java.time.LocalDateTime;
 
+import org.springframework.util.StringUtils;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -45,6 +47,12 @@ public class User extends BaseTimeEntity {
         this.nickname = nickname;
         this.provider = provider;
         this.providerId = providerId;
+    }
+
+    public void updateProfile(String nickname) {
+        if (StringUtils.hasText(nickname)) {
+            this.nickname = nickname;
+        }
     }
 
     public void updateLastLoginAt() {
