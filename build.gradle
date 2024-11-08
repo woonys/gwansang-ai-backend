@@ -31,9 +31,18 @@ dependencies {
     implementation 'org.springframework.ai:spring-ai-anthropic-spring-boot-starter'
     implementation 'org.springframework.ai:spring-ai-azure-openai-spring-boot-starter'
     implementation 'org.springframework.ai:spring-ai-openai-spring-boot-starter'
+    implementation platform("org.springframework.ai:spring-ai-bom:1.0.0-SNAPSHOT")
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    compileOnly 'org.projectlombok:lombok'
+    testImplementation 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    // Replace the following with the starter dependencies of specific modules you wish to use
+    implementation 'org.springframework.ai:spring-ai-openai'
     runtimeOnly 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'io.projectreactor:reactor-test:3.5.11'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
